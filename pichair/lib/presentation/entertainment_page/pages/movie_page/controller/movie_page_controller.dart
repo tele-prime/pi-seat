@@ -1,6 +1,5 @@
 import 'dart:io';
 import 'package:get/get.dart';
-import 'package:udev/udev.dart';
 
 class MoviePageController extends GetxController {
   List<File> movies = [];

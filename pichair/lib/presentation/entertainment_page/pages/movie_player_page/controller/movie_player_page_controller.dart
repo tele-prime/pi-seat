@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:io';
-import 'package:flutterpi_gstreamer_video_player/flutterpi_gstreamer_video_player.dart';
 import 'package:get/get.dart';
 import 'package:video_player/video_player.dart';
 
@@ -17,7 +16,6 @@ class MoviePlayerPageController extends GetxController {
     filePath = Get.arguments as String?;
     print('#### MoviePlayerPageController initialized with filePath: $filePath');
     if (filePath != null) {
-      FlutterpiVideoPlayer.registerWith();
       _initializePlayer();
     }
   }

@@ -1,6 +1,5 @@
 import 'dart:io';
 import 'package:get/get.dart';
-import 'package:udev/udev.dart';
 
 class MusicPageController extends GetxController {
   List<File> musics = [];
@@ -35,17 +34,17 @@ class MusicPageController extends GetxController {
 
     Future<String?> _findUsbMountPath() async {
     try {
-      final udev = UdevContext();
-      final devices = udev.enumerateDevices(
-        subsystems: ['block'],
-        properties: {'ID_BUS': 'usb'},
-      );
-      print('#### scan done ${devices.length}');
-
-      if (devices.isEmpty) return null;
-
-      final device = UdevDevice.fromSyspath(devices.first, context: udev);
-      return device.devpath;
+      // final udev = UdevContext();
+      // final devices = udev.enumerateDevices(
+      //   subsystems: ['block'],
+      //   properties: {'ID_BUS': 'usb'},
+      // );
+      // print('#### scan done ${devices.length}');
+      //
+      // if (devices.isEmpty) return null;
+      //
+      // final device = UdevDevice.fromSyspath(devices.first, context: udev);
+      // return device.devpath;
     } catch (e) {
       print('Error finding USB mount path: $e');
     }

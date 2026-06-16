@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutterpi_gstreamer_video_player/flutterpi_gstreamer_video_player.dart';
 import 'package:pichair/app/sss_massage_chair.dart';
 
 void main() {
-  FlutterpiVideoPlayer.registerWith();
   runApp(const SssMassageChair());
 }
 

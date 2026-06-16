@@ -1,6 +1,3 @@
-import 'package:flutter_glow/flutter_glow.dart';
-import 'package:pichair/app/service/sss_global.dart';
-import 'package:pichair/app/theme/color_theme.dart';
 import 'package:pichair/app/theme/style_theme.dart';
 import 'package:flutter_neumorphic_plus/flutter_neumorphic.dart';
 import 'package:get/get.dart';
@@ -27,10 +24,7 @@ class HomeMenuWidget extends StatelessWidget {
             child: SizedBox(
               width: width/2,
               height: width/2,
-              child: GlowIcon(IconData(0xe800, fontFamily: 'SeatIcon', fontPackage: null),
-                  size: width/2,
-                  color: currentThemeMode.value == ThemeMode.dark ? SssColor.whiteGrey : SssColor.blue
-              ),
+              child: Icon(Icons.eighteen_mp),
             ),
           ),
         ),

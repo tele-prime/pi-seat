@@ -3,7 +3,6 @@ import 'dart:io';
 
 import 'package:get/get.dart';
 import 'package:pichair/app/enum/sss_enum.dart';
-import 'package:udev/udev.dart';
 
 class EntertainmentPageController extends GetxController {
   TvConnection isScanningTv = TvConnection.disconnected;
@@ -79,32 +78,32 @@ class EntertainmentPageController extends GetxController {
     update();
     await Future.delayed(const Duration(milliseconds: 200));
     try {
-      final udev = UdevContext();
-      final devices = udev.enumerateDevices(
-        subsystems: ['block'],
-        properties: {'ID_BUS': 'usb'},
-      );
-
-      if (devices.isNotEmpty) {
-        final device = UdevDevice.fromSyspath(devices.first, context: udev);
-        final devicePath = device.properties['DEVNAME'];
-        if (devicePath != null) {
-          final isMounted = await _isDeviceMounted(devicePath);
-          if (!isMounted) {
-            await _mountDevice(devicePath);
-          } else {
-            print('#### USB device $devicePath is already mounted.');
-          }
-        }
-      }
-
-      bool isExist = await Directory('/mnt/usb').exists();
-      if (isExist) {
-        final files = Directory('/mnt/usb').listSync();
-        isUsbAvailable = files.isNotEmpty;
-      } else {
-        isUsbAvailable = false;
-      }
+      // final udev = UdevContext();
+      // final devices = udev.enumerateDevices(
+      //   subsystems: ['block'],
+      //   properties: {'ID_BUS': 'usb'},
+      // );
+      //
+      // if (devices.isNotEmpty) {
+      //   final device = UdevDevice.fromSyspath(devices.first, context: udev);
+      //   final devicePath = device.properties['DEVNAME'];
+      //   if (devicePath != null) {
+      //     final isMounted = await _isDeviceMounted(devicePath);
+      //     if (!isMounted) {
+      //       await _mountDevice(devicePath);
+      //     } else {
+      //       print('#### USB device $devicePath is already mounted.');
+      //     }
+      //   }
+      // }
+      //
+      // bool isExist = await Directory('/mnt/usb').exists();
+      // if (isExist) {
+      //   final files = Directory('/mnt/usb').listSync();
+      //   isUsbAvailable = files.isNotEmpty;
+      // } else {
+      //   isUsbAvailable = false;
+      // }
     } catch (e) {
       isUsbAvailable = false;
     } finally {

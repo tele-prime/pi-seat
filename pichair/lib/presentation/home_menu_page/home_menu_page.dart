@@ -38,16 +38,14 @@ class HomeMenuPage extends StatelessWidget {
                         Expanded(child: SizedBox()),
                         HomeMenuWidget(
                           onPressed: () {
-                            if(controller.tvIpAddress != null){
                               Get.toNamed(AppRoutes.entertainmentTv);
-                            }
                           },
                           onLongPressed: (){
                             controller.resetConnection();
                           },
                           icon: 'entertainment',
                           isScanning: controller.isScanningTv == TvConnection.scanning,
-                          isConnected: controller.tvIpAddress != null,
+                          isConnected: true,
                         ),
                         SizedBox(width: 10),
                         HomeMenuWidget(

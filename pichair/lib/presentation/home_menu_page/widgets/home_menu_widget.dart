@@ -47,7 +47,7 @@ class HomeMenuWidget extends StatelessWidget {
                 Positioned.fill(child: Image(
                   image: ExactAssetImage('assets/icons/icon_$icon.png'),
                   fit: BoxFit.contain,
-                  color: isConnected ? null : SssColor.white.withOpacity(54),
+                  color: isConnected ? null : SssColor.white,
                 )),
                 Positioned(
                     bottom: 0,

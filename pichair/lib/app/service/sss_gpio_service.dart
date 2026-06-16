@@ -1,4 +1,3 @@
-import 'package:dart_periphery/dart_periphery.dart';
 import 'package:get/get.dart';
 import 'package:pichair/app/enum/sss_enum.dart';
 
@@ -10,24 +9,24 @@ class SssGpioService extends GetxService {
   bool currentSeatLightStatus = false;
   bool currentPrivacyLightStatus = false;
 
-  var backBackward = GPIO(15, GPIOdirection.gpioDirOut);
-  var backForward = GPIO(18, GPIOdirection.gpioDirOut);
-  var handUpward = GPIO(23, GPIOdirection.gpioDirOut);
-  var handDownward = GPIO(24, GPIOdirection.gpioDirOut);
-  var seatForward = GPIO(1, GPIOdirection.gpioDirOut);
-  var seatBackward = GPIO(25, GPIOdirection.gpioDirOut);
-  var legUpward = GPIO(12, GPIOdirection.gpioDirOut);
-  var legDownward = GPIO(16, GPIOdirection.gpioDirOut);
-  var footForward = GPIO(14, GPIOdirection.gpioDirOut);
-  var footBackward = GPIO(20, GPIOdirection.gpioDirOut);
+  // var backBackward = GPIO(15, GPIOdirection.gpioDirOut);
+  // var backForward = GPIO(18, GPIOdirection.gpioDirOut);
+  // var handUpward = GPIO(23, GPIOdirection.gpioDirOut);
+  // var handDownward = GPIO(24, GPIOdirection.gpioDirOut);
+  // var seatForward = GPIO(1, GPIOdirection.gpioDirOut);
+  // var seatBackward = GPIO(25, GPIOdirection.gpioDirOut);
+  // var legUpward = GPIO(12, GPIOdirection.gpioDirOut);
+  // var legDownward = GPIO(16, GPIOdirection.gpioDirOut);
+  // var footForward = GPIO(14, GPIOdirection.gpioDirOut);
+  // var footBackward = GPIO(20, GPIOdirection.gpioDirOut);
 
-  var privacyLight = GPIO(5, GPIOdirection.gpioDirOut);
-  var seatLight = GPIO(6, GPIOdirection.gpioDirOut);
-  var tableLamp = GPIO(13, GPIOdirection.gpioDirOut);
-  var readingLighting = GPIO(0, GPIOdirection.gpioDirOut);
-  var tv = GPIO(26, GPIOdirection.gpioDirOut);
-
-  var customGround = GPIO(19, GPIOdirection.gpioDirOut);
+  // var privacyLight = GPIO(5, GPIOdirection.gpioDirOut);
+  // var seatLight = GPIO(6, GPIOdirection.gpioDirOut);
+  // var tableLamp = GPIO(13, GPIOdirection.gpioDirOut);
+  // var readingLighting = GPIO(0, GPIOdirection.gpioDirOut);
+  // var tv = GPIO(26, GPIOdirection.gpioDirOut);
+  //
+  // var customGround = GPIO(19, GPIOdirection.gpioDirOut);
 
   // var ir = GPIO(17, GPIOdirection.gpioDirIn);
 
@@ -35,88 +34,62 @@ class SssGpioService extends GetxService {
   void onInit() {
     super.onInit();
     startLightingInitialize();
-    tv.write(true);
+    // tv.write(true);
     //initIR();
   }
 
   @override
   void onClose() {
     super.onClose();
-    backBackward.dispose();
-    backForward.dispose();
-    handUpward.dispose();
-    handDownward.dispose();
-    seatForward.dispose();
-    seatBackward.dispose();
-    legUpward.dispose();
-    legDownward.dispose();
-    footForward.dispose();
-    footBackward.dispose();
-    readingLighting.dispose();
-    tv.dispose();
+    // backBackward.dispose();
+    // backForward.dispose();
+    // handUpward.dispose();
+    // handDownward.dispose();
+    // seatForward.dispose();
+    // seatBackward.dispose();
+    // legUpward.dispose();
+    // legDownward.dispose();
+    // footForward.dispose();
+    // footBackward.dispose();
+    // readingLighting.dispose();
+    // tv.dispose();
   }
 
-  // void initIR() {
-  //   // Helper function to write logs to a file
-  //   void writeLog(String message) {
-  //     // This will create a file named 'app_debug_log.txt' in the same folder as your app
-  //     final file = File('app_debug_log.txt');
-  //     file.writeAsStringSync('${DateTime.now()}: $message\n', mode: FileMode.append);
-  //   }
-  //
-  //   try {
-  //     writeLog("Starting initialization...");
-  //
-  //     // IMPORTANT: Make sure the C library is loaded before calling GPIO
-  //     // useSharedLibray();
-  //     useSharedLibrary();
-  //
-  //     writeLog("Attempting to open GPIO 17...");
-  //     var ir = GPIO(17, GPIOdirection.gpioDirIn);
-  //
-  //     writeLog("SUCCESS: GPIO 17 opened!");
-  //
-  //   } catch (e, stacktrace) {
-  //     // This catches the crash so your app keeps running!
-  //     writeLog("ERROR opening GPIO 17: $e");
-  //     writeLog("STACKTRACE: $stacktrace");
-  //   }
-  // }
 
   void startVoltage() {
     switch (currentChairMovement) {
       case ChairMovement.backBackward:
-        backBackward.write(true);
+        // backBackward.write(true);
         break;
       case ChairMovement.backForward:
-        backForward.write(true);
+        // backForward.write(true);
         break;
       case ChairMovement.handUpward:
-        handUpward.write(true);
+        // handUpward.write(true);
         break;
       case ChairMovement.handDownward:
-        handDownward.write(true);
+        // handDownward.write(true);
         break;
       case ChairMovement.seatForward:
-        seatForward.write(true);
+        // seatForward.write(true);
         break;
       case ChairMovement.seatBackward:
-        seatBackward.write(true);
+        // seatBackward.write(true);
         break;
       case ChairMovement.legUpward:
-        legUpward.write(true);
+        // legUpward.write(true);
         break;
       case ChairMovement.legDownward:
-        legDownward.write(true);
+        // legDownward.write(true);
         break;
       case ChairMovement.footForward:
-        footForward.write(true);
+        // footForward.write(true);
         break;
       case ChairMovement.footBackward:
-        footBackward.write(true);
+        // footBackward.write(true);
         break;
       case ChairMovement.tv:
-        tv.write(false);
+        // tv.write(false);
         break;
       case ChairMovement.none:
         // do something
@@ -127,37 +100,37 @@ class SssGpioService extends GetxService {
   void stopVoltage() async {
     switch (currentChairMovement) {
       case ChairMovement.backBackward:
-        backBackward.write(false);
+        // backBackward.write(false);
         break;
       case ChairMovement.backForward:
-        backForward.write(false);
+        // backForward.write(false);
         break;
       case ChairMovement.handUpward:
-        handUpward.write(false);
+        // handUpward.write(false);
         break;
       case ChairMovement.handDownward:
-        handDownward.write(false);
+        // handDownward.write(false);
         break;
       case ChairMovement.seatForward:
-        seatForward.write(false);
+        // seatForward.write(false);
         break;
       case ChairMovement.seatBackward:
-        seatBackward.write(false);
+        // seatBackward.write(false);
         break;
       case ChairMovement.legUpward:
-        legUpward.write(false);
+        // legUpward.write(false);
         break;
       case ChairMovement.legDownward:
-        legDownward.write(false);
+        // legDownward.write(false);
         break;
       case ChairMovement.footForward:
-        footForward.write(false);
+        // footForward.write(false);
         break;
       case ChairMovement.footBackward:
-        footBackward.write(false);
+        // footBackward.write(false);
         break;
       case ChairMovement.tv:
-        tv.write(true);
+        // tv.write(true);
         break;
       case ChairMovement.none:
 
@@ -171,22 +144,22 @@ class SssGpioService extends GetxService {
 
   Future<void> togglePrivacyLight() async {
     currentPrivacyLightStatus = !currentPrivacyLightStatus;
-    privacyLight.write(currentPrivacyLightStatus);
+    // privacyLight.write(currentPrivacyLightStatus);
   }
 
   Future<void> toggleSeatLight() async {
     currentSeatLightStatus = !currentSeatLightStatus;
-    seatLight.write(currentSeatLightStatus);
+    // seatLight.write(currentSeatLightStatus);
   }
 
   Future<void> toggleTableLamp() async {
     currentTableLampStatus = !currentTableLampStatus;
-    tableLamp.write(currentTableLampStatus);
+    // tableLamp.write(currentTableLampStatus);
   }
 
   Future<void> toggleReadingLight() async {
     currentReadingLightStatus = !currentReadingLightStatus;
-    readingLighting.write(currentReadingLightStatus);
+    // readingLighting.write(currentReadingLightStatus);
   }
 
   void startLightingInitialize(){
@@ -195,10 +168,10 @@ class SssGpioService extends GetxService {
     currentSeatLightStatus = true;
     currentPrivacyLightStatus = true;
 
-    privacyLight.write(currentPrivacyLightStatus);
-    seatLight.write(currentSeatLightStatus);
-    tableLamp.write(currentTableLampStatus);
-    readingLighting.write(currentReadingLightStatus);
+    // privacyLight.write(currentPrivacyLightStatus);
+    // seatLight.write(currentSeatLightStatus);
+    // tableLamp.write(currentTableLampStatus);
+    // readingLighting.write(currentReadingLightStatus);
   }
 
   // Future<void> sendTvSignal() async {
