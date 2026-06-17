@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pichair/app/constants/content_list.dart';
 import 'package:pichair/app/theme/color_theme.dart';
 import 'package:pichair/presentation/entertainment_page/pages/tv_page/controller/tv_page_android_controller.dart';
 import 'package:scrollable_list_tab_scroller/scrollable_list_tab_scroller.dart';
@@ -70,7 +71,7 @@ class _TvDrawerMusicListState extends State<TvDrawerMusicList> {
             ),
           ),
           MusicListWidget(
-            musicList: controller.homeMenuPageController.musicFiles,
+            musicList: ContentList().musics,
             onPlay: (uri) => controller.playMusic(uri),
             cut: false,
           ),
@@ -107,7 +108,7 @@ class _TvDrawerMusicListState extends State<TvDrawerMusicList> {
 
 class MusicListWidget extends StatelessWidget {
 
-  final List<Map<String, String>> musicList;
+  final List<String> musicList;
   final bool cut;
   final Function(String) onPlay;
 
@@ -127,18 +128,13 @@ class MusicListWidget extends StatelessWidget {
               borderRadius: BorderRadius.circular(8),
               color: Colors.black12
           ),
-          child: Text(
-            cut ?
-            musicList[i]['name']!.substring(
-              musicList[i]['name']!.indexOf(' '),
-              musicList[i]['name']!.indexOf('('),
-            ) : musicList[i]['name']!,
+          child: Text(musicList[i],
             style: TextStyle(color: SssColor.black),
           ),
         ),
         onTap: () {
           Get.close(1);
-          onPlay(musicList[i]['uri']!);
+          onPlay(musicList[i]);
         },
       ),
     );

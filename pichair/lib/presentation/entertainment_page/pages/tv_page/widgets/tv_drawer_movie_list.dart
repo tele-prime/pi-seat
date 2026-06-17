@@ -97,7 +97,7 @@ class TvDrawerMovieList extends StatelessWidget {
 
 class MovieListWidget extends StatelessWidget {
 
-  final List<Map<String, String>> movieList;
+  final List<String> movieList;
   final Function(String) onPlay;
 
   const MovieListWidget({super.key, required this.movieList, required this.onPlay});
@@ -117,13 +117,13 @@ class MovieListWidget extends StatelessWidget {
                 color: Colors.black12
             ),
             child: Text(
-              movieList[i]['name'] ?? '',
+              movieList[i] ?? '',
               style: const TextStyle(color: SssColor.black),
             )
         ),
         onTap: () {
           Get.close(1);
-          onPlay(movieList[i]['uri']!);
+          onPlay(movieList[i]);
         },
       ),
     );

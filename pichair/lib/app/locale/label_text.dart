@@ -7,7 +7,7 @@ class LabelText extends Translations {
     'en_US' : {
       'back' : 'BACK REST',
       'arm' : 'ARM REST',
-      'seat' : 'SEAT SLIDE',
+      'seat' : 'SLIDE SEAT',
       'leg' : 'LEG REST',
       'foot' : 'FOOT REST',
       'setting_menu_config' : 'Configuration',

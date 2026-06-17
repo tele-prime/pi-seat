@@ -26,7 +26,7 @@ class TvMenus extends StatelessWidget {
                 child: SizedBox(
                   width: 50,
                   height: 50,
-                  child: Icon(Icons.arrow_back_ios_new, size: 20),
+                  child: Icon(Icons.home, size: 20),
                 ),
               ),
             ),
