@@ -21,7 +21,7 @@ class TvLayoutRemoteControl extends StatelessWidget {
                 children: [
                   Expanded(child: SizedBox()),
                   TvRemoteButton(
-                      icon: Icons.arrow_drop_up,
+                      icon: Icons.keyboard_arrow_up,
                     onPressed: controller.arrowUp
                   ),
                   SizedBox(height: 10),
@@ -29,7 +29,7 @@ class TvLayoutRemoteControl extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       TvRemoteButton(
-                          icon: Icons.arrow_left,
+                          icon: Icons.keyboard_arrow_left,
                           onPressed: controller.arrowLeft
                       ),
                       SizedBox(width: 20),
@@ -39,14 +39,14 @@ class TvLayoutRemoteControl extends StatelessWidget {
                       ),
                       SizedBox(width: 20),
                       TvRemoteButton(
-                        icon: Icons.arrow_right,
+                        icon: Icons.keyboard_arrow_right,
                         onPressed: controller.arrowRight,
                       ),
                     ],
                   ),
                   SizedBox(height: 10),
                   TvRemoteButton(
-                    icon: Icons.arrow_drop_down,
+                    icon: Icons.keyboard_arrow_down,
                     onPressed: controller.arrowDown,
                   ),
                   Expanded(child: SizedBox()),
