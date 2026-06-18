@@ -46,18 +46,12 @@ class HomeMenuPageController extends GetxController {
         artistString = name.substring(startIndex + 1, endIndex);
       }
 
-      // List<String> artists = artistString.split('+').map((a) => a.trim()).toList();
-      // for (String artist in artists) {
-        if (!categorizedMusic.containsKey(artistString)) {
-        categorizedMusic[artistString] = [];
-        }
-        categorizedMusic[artistString]?.add(name);
-      // }
-      debugPrint("artist list => $artistString");
-      debugPrint("artist => $categorizedMusic");
+      if (!categorizedMusic.containsKey(artistString)) {
+      categorizedMusic[artistString] = [];
+      }
+      categorizedMusic[artistString]?.add(name);
     }
     artists = categorizedMusic.keys.toList();
-    debugPrint("artist => $artists");
     update();
   }
 
@@ -72,13 +66,10 @@ class HomeMenuPageController extends GetxController {
         categoryString = name.substring(startIndex + 1, endIndex);
       }
 
-      List<String> movieCategory = categoryString.split('+').map((a) => a.trim()).toList();
-      for (String cat in movieCategory) {
-        if (!categorizedMovie.containsKey(cat)) {
-          categorizedMovie[cat] = [];
-        }
-        categorizedMovie[cat]!.add(name);
+      if (!categorizedMovie.containsKey(categoryString)) {
+        categorizedMovie[categoryString] = [];
       }
+      categorizedMovie[categoryString]!.add(name);
     }
     categories = categorizedMovie.keys.toList();
     categories.sort();

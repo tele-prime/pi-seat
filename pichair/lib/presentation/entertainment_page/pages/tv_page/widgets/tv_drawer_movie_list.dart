@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pichair/app/constants/content_list.dart';
 import 'package:pichair/app/theme/color_theme.dart';
 import 'package:pichair/presentation/entertainment_page/pages/tv_page/controller/tv_page_android_controller.dart';
 import 'package:scrollable_list_tab_scroller/scrollable_list_tab_scroller.dart';
@@ -62,7 +63,7 @@ class TvDrawerMovieList extends StatelessWidget {
             ),
           ),
           MovieListWidget(
-            movieList: controller.homeMenuPageController.movieFiles,
+            movieList: ContentList().movies,
             onPlay: (uri) => controller.playMovie(uri),
           ),
         ] : [
@@ -109,6 +110,7 @@ class MovieListWidget extends StatelessWidget {
       physics: const NeverScrollableScrollPhysics(),
       itemCount: movieList.length,
       itemBuilder: (c, i) => ListTile(
+        hoverColor: Colors.transparent,
         title: Container(
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
             decoration: BoxDecoration(

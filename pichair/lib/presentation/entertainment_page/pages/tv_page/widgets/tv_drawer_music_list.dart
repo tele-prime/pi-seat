@@ -121,6 +121,7 @@ class MusicListWidget extends StatelessWidget {
       physics: NeverScrollableScrollPhysics(),
       itemCount: musicList.length,
       itemBuilder: (c, i) => ListTile(
+        hoverColor: Colors.transparent,
         title: Container(
           padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
           decoration: BoxDecoration(
