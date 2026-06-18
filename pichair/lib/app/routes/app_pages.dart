@@ -39,6 +39,8 @@ import 'package:pichair/presentation/right/seat_touch_page/controllers/right_sea
 import 'package:pichair/presentation/right/seat_touch_page/right_seat_touch_page.dart';
 import 'package:pichair/presentation/setting_page/controller/setting_page_controller.dart';
 import 'package:pichair/presentation/setting_page/setting_page.dart';
+import 'package:pichair/presentation/setting_show_page/controllers/setting_show_page_controller.dart';
+import 'package:pichair/presentation/setting_show_page/setting_show_page.dart';
 import 'package:pichair/presentation/splash_page/controllers/splash_page_controller.dart';
 import 'package:pichair/presentation/splash_page/splash_page.dart';
 import 'package:get/get.dart';
@@ -96,6 +98,13 @@ class AppPages {
       page: () => SettingPage(),
       bindings: [
         BindingsBuilder(() => Get.lazyPut(() => SettingPageController())),
+      ],
+    ),
+    GetPage(
+      name: AppRoutes.settingShow,
+      page: () => SettingShowPage(),
+      bindings: [
+        BindingsBuilder(() => Get.lazyPut(() => SettingShowPageController())),
       ],
     ),
     GetPage(

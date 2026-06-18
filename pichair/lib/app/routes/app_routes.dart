@@ -4,6 +4,7 @@ class AppRoutes {
   static String homeMenu = '/home/menu';
   static String home = '/home';
   static String setting = '/setting';
+  static String settingShow = '/settingshow';
   static String leftSeatTouch = '/left/seat/touch';
   static String leftControlTouch = '/left/control/touch';
   static String leftControlButton = '/left/control/button';

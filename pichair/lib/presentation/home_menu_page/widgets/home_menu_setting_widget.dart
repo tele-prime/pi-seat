@@ -27,7 +27,7 @@ class HomeMenuSettingWidget extends StatelessWidget {
         // ),
         SizedBox(width: 20),
         NeumorphicButton(
-          onPressed: () => Get.toNamed(AppRoutes.setting),
+          onPressed: () => Get.toNamed(AppRoutes.settingShow),
           style: SssStyleTheme().getMenu(radius: 10),
           padding: const EdgeInsets.symmetric(horizontal: 1, vertical: 1),
           child: Center(
