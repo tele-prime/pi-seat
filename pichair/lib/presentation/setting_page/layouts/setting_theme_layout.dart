@@ -24,39 +24,39 @@ class SettingThemeLayout extends StatelessWidget {
             thickness: 1,
             color: SssColor.dividerBlack,
           ),
-          SettingLayoutListCell(
-            label: 'layout_button_1'.tr,
-            value: 2,
-            group: controller.currentSelectedDesignPosition,
-            onChanged:(position) => controller.changeLayoutDesign(position),
-          ),
-          Divider(
-            height: 1,
-            thickness: 1,
-            color: SssColor.dividerBlack,
-          ),
-          SettingLayoutListCell(
-            label: 'layout_icon_1'.tr,
-            value: 3,
-            group: controller.currentSelectedDesignPosition,
-            onChanged:(position) => controller.changeLayoutDesign(position),
-          ),
-          Divider(
-            height: 1,
-            thickness: 1,
-            color: SssColor.dividerBlack,
-          ),
-          SettingLayoutListCell(
-            label: 'layout_image_1'.tr,
-            value: 4,
-            group: controller.currentSelectedDesignPosition,
-            onChanged:(position) => controller.changeLayoutDesign(position),
-          ),
-          Divider(
-            height: 1,
-            thickness: 1,
-            color: SssColor.dividerBlack,
-          ),
+          // SettingLayoutListCell(
+          //   label: 'layout_button_1'.tr,
+          //   value: 2,
+          //   group: controller.currentSelectedDesignPosition,
+          //   onChanged:(position) => controller.changeLayoutDesign(position),
+          // ),
+          // Divider(
+          //   height: 1,
+          //   thickness: 1,
+          //   color: SssColor.dividerBlack,
+          // ),
+          // SettingLayoutListCell(
+          //   label: 'layout_icon_1'.tr,
+          //   value: 3,
+          //   group: controller.currentSelectedDesignPosition,
+          //   onChanged:(position) => controller.changeLayoutDesign(position),
+          // ),
+          // Divider(
+          //   height: 1,
+          //   thickness: 1,
+          //   color: SssColor.dividerBlack,
+          // ),
+          // SettingLayoutListCell(
+          //   label: 'layout_image_1'.tr,
+          //   value: 4,
+          //   group: controller.currentSelectedDesignPosition,
+          //   onChanged:(position) => controller.changeLayoutDesign(position),
+          // ),
+          // Divider(
+          //   height: 1,
+          //   thickness: 1,
+          //   color: SssColor.dividerBlack,
+          // ),
           SettingLayoutListCell(
             label: 'layout_none'.tr,
             value: 0,
