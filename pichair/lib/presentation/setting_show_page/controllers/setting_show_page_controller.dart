@@ -9,13 +9,24 @@ class SettingShowPageController extends GetxController {
   SssService service = Get.find();
 
   String languageCode = 'en';
-  double menuWidth = 130;
+  double menuWidth = 100;
 
 
 
 
   void changeThemeMode() async {
     if(currentThemeMode.value == ThemeMode.dark){
+      service.saveThemeMode(ThemeMode.light);
+    }else{
+      service.saveThemeMode(ThemeMode.dark);
+    }
+    await Future.delayed(const Duration(milliseconds: 300), update);
+    HomePageController homePageController = Get.find();
+    homePageController.update();
+  }
+
+  void changeThemeModeToggle(bool current) async {
+    if(current){
       service.saveThemeMode(ThemeMode.light);
     }else{
       service.saveThemeMode(ThemeMode.dark);

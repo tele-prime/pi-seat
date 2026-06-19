@@ -14,7 +14,7 @@ class LabelText extends Translations {
       'setting_menu_info' : 'Information',
       'setting_menu_layout' : 'Layout',
       'setting_menu_position' : 'Position',
-      'setting_menu_locale' : 'Localization',
+      'setting_menu_locale' : 'Language',
       'setting_menu_theme' : 'Theme',
       'setting_menu_label' : 'Show label',
       'layout_touch_1' : 'Choose Touch layout',

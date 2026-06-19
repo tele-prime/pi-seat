@@ -24,6 +24,7 @@ dependencies:
   video_player: 2.8.1
   shimmer_animation: ^2.2.2+1
   scrollable_list_tab_scroller: ^3.1.1
+  animated_toggle_switch: ^0.8.7
 
 dev_dependencies:
   flutter_test:

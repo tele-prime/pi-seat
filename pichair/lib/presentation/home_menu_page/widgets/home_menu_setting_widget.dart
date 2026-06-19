@@ -26,15 +26,23 @@ class HomeMenuSettingWidget extends StatelessWidget {
         //   ),
         // ),
         SizedBox(width: 20),
-        NeumorphicButton(
-          onPressed: () => Get.toNamed(AppRoutes.settingShow),
-          style: SssStyleTheme().getMenu(radius: 10),
-          padding: const EdgeInsets.symmetric(horizontal: 1, vertical: 1),
-          child: Center(
-            child: SizedBox(
-              width: 50,
-              height: 50,
-              child: Icon(Icons.settings, color: Get.theme.cardColor, size: 20),
+        GestureDetector(
+          onTap: () => Get.toNamed(AppRoutes.settingShow),
+          // onTapUp: (a) => Get.toNamed(AppRoutes.settingShow),
+          // onTapDown: (a) => Get.toNamed(AppRoutes.settingShow),
+          onLongPress: () => Get.toNamed(AppRoutes.setting),
+          child: Neumorphic(
+            style: SssStyleTheme().getMenu(radius: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 1, vertical: 1),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 1, vertical: 1),
+              child: Center(
+                child: SizedBox(
+                  width: 50,
+                  height: 50,
+                  child: Icon(Icons.settings, color: Get.theme.cardColor, size: 20),
+                ),
+              ),
             ),
           ),
         ),

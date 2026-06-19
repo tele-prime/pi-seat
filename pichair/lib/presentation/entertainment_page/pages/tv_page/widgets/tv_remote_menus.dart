@@ -91,7 +91,12 @@ class TvRemoteMenus extends StatelessWidget {
                     child: SizedBox(
                       width: 50,
                       height: 50,
-                      child: Icon(Icons.home, size: 20),
+                      child: Stack(
+                        children: [
+                          Center(child: Icon(Icons.tv_outlined, size: 25)),
+                          Center(child: Icon(Icons.home, size: 13))
+                        ],
+                      ),
                     ),
                   ),
                 ),

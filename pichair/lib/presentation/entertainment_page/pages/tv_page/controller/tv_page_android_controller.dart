@@ -22,6 +22,11 @@ class TvPageAndroidController extends GetxController {
   DateTime? _lastCommandTime;
   bool _isMoving = false;
 
+
+  int currentIndex = -1;
+  bool isPlaying = false;
+  bool isDialogOpen = false;
+
   List tvIconList = [
     {
       'package':'com.fise.preview',
@@ -190,6 +195,13 @@ class TvPageAndroidController extends GetxController {
     if(gpioService.currentChairMovement != ChairMovement.none){
       gpioService.stopVoltage();
       update();
+    }
+  }
+
+  void stopAndCloseDialog() {
+    update();
+    if (Get.isDialogOpen ?? false) {
+      Get.close(1);
     }
   }
 
