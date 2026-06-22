@@ -25,6 +25,7 @@ dependencies:
   shimmer_animation: ^2.2.2+1
   scrollable_list_tab_scroller: ^3.1.1
   animated_toggle_switch: ^0.8.7
+  lottie: ^3.3.3
 
 dev_dependencies:
   flutter_test:
@@ -45,6 +46,7 @@ flutter:
     - assets/apps/
     - assets/logos/
     - assets/pdf/
+    - assets/lottie/
 
   fonts:
     - family: Pyidaungsu

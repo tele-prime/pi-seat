@@ -1,12 +1,28 @@
+import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 import 'package:flutter_joystick/flutter_joystick.dart';
 import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
 import 'package:pichair/app/enum/sss_enum.dart';
 import 'package:pichair/app/theme/color_theme.dart';
 import 'package:pichair/presentation/left/seat_touch_page/controllers/left_seat_touch_page_controller.dart';
 
-class LeftSeatTouchPageTouchControl extends StatelessWidget {
+class LeftSeatTouchPageTouchControl extends StatefulWidget {
   const LeftSeatTouchPageTouchControl({super.key});
+
+  @override
+  State<LeftSeatTouchPageTouchControl> createState() => _LeftSeatTouchPageTouchControlState();
+}
+
+class _LeftSeatTouchPageTouchControlState extends State<LeftSeatTouchPageTouchControl> with TickerProviderStateMixin {
+
+
+
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +49,7 @@ class LeftSeatTouchPageTouchControl extends StatelessWidget {
                             backgroundColor: Colors.red.withAlpha(1),
                             child: CircleAvatar(
                               radius: controller.joyStickDot,
-                              backgroundColor: Colors.red,
+                              backgroundColor: Colors.white,
                             ),
                           ),
                           mode: JoystickMode.horizontal,
@@ -44,19 +60,43 @@ class LeftSeatTouchPageTouchControl extends StatelessWidget {
                               color: SssColor.joystickBackground,
                               shape: BoxShape.circle,
                             ),
+                            // child: Expanded(child: Center(
+                            //   child: SizedBox(
+                            //       height: controller.arrowSize,
+                            //       child: Lottie.asset(
+                            //         controller.arrowAssetName,
+                            //       )
+                            //   ),
+                            // )),
                             child: Row(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 Expanded(child: Center(
-                                  child: Icon(Icons.keyboard_arrow_left_outlined,
-                                    color: SssColor.arrowBlack,
-                                    size: 20,
+                                  child: RotatedBox(
+                                    quarterTurns: controller.turnDown,
+                                    child: SizedBox(
+                                        height: controller.arrowSize,
+                                        child: Opacity(
+                                          opacity: 1,
+                                          child: Lottie.asset(
+                                            "assets/lottie/white_dot.json",
+                                          )
+                                        )
+                                    ),
                                   ),
                                 )),
                                 Expanded(child: Center(
-                                  child: Icon(Icons.keyboard_arrow_right_outlined,
-                                    color: SssColor.arrowBlack,
-                                    size: 20,
+                                  child: RotatedBox(
+                                    quarterTurns: controller.turnUp,
+                                    child: SizedBox(
+                                        height: controller.arrowSize,
+                                        child: Opacity(
+                                          opacity: 1,
+                                          child: Lottie.asset(
+                                            "assets/lottie/white_dot.json",
+                                          ),
+                                        )
+                                    ),
                                   ),
                                 )),
                               ],
@@ -67,18 +107,6 @@ class LeftSeatTouchPageTouchControl extends StatelessWidget {
                               ChairMovement.backForward,
                               ChairMovement.backBackward
                           ),
-                          // listener: (detail){
-                          //   if(detail.x != 0 || detail.y != 0){
-                          //     if(detail.x > 0) {
-                          //       controller.startMovement(ChairMovement.backForward);
-                          //     }else if(detail.x < 0) {
-                          //       controller.startMovement(ChairMovement.backBackward);
-                          //     }
-                          //   }else{
-                          //     controller.stopMovement();
-                          //   }
-                          //   controller.update();
-                          // }
                       )
                   ),
                   Positioned(
@@ -104,19 +132,46 @@ class LeftSeatTouchPageTouchControl extends StatelessWidget {
                                 color: SssColor.joystickBackground,
                                 shape: BoxShape.circle,
                               ),
+                              // child: Expanded(child: Center(
+                              //   child: RotatedBox(
+                              //     quarterTurns: controller.turnLeft,
+                              //     child: SizedBox(
+                              //         height: controller.arrowSize,
+                              //         child: Lottie.asset(
+                              //           "assets/lottie/arrow_white.json",
+                              //         )
+                              //     ),
+                              //   ),
+                              // )),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Expanded(child: Center(
-                                    child: Icon(Icons.keyboard_arrow_up_outlined,
-                                      color: SssColor.arrowBlack,
-                                      size: 20,
+                                    child: RotatedBox(
+                                      quarterTurns: controller.turnUp,
+                                      child: SizedBox(
+                                          height: controller.arrowSize,
+                                          child: Opacity(
+                                              opacity: controller.arrowOpacity,
+                                              child: Lottie.asset(
+                                                controller.arrowAssetName,
+                                              )
+                                          )
+                                      ),
                                     ),
                                   )),
                                   Expanded(child: Center(
-                                    child: Icon(Icons.keyboard_arrow_down_outlined,
-                                      color: SssColor.arrowBlack,
-                                      size: 20,
+                                    child: RotatedBox(
+                                      quarterTurns: controller.turnDown,
+                                      child: SizedBox(
+                                          height: controller.arrowSize,
+                                          child: Opacity(
+                                            opacity: controller.arrowOpacity,
+                                            child: Lottie.asset(
+                                              controller.arrowAssetName,
+                                            ),
+                                          )
+                                      ),
                                     ),
                                   )),
                                 ],
@@ -127,18 +182,6 @@ class LeftSeatTouchPageTouchControl extends StatelessWidget {
                                 ChairMovement.legDownward,
                                 ChairMovement.legUpward
                             ),
-                            // listener: (detail){
-                            //   if(detail.x != 0 || detail.y != 0){
-                            //     if(detail.y > 0) {
-                            //       controller.startMovement(ChairMovement.legDownward);
-                            //     }else if(detail.y < 0) {
-                            //       controller.startMovement(ChairMovement.legUpward);
-                            //     }
-                            //   }else{
-                            //     controller.stopMovement();
-                            //   }
-                            //   controller.update();
-                            // }
                         ),
                       )
                   ),
@@ -164,19 +207,43 @@ class LeftSeatTouchPageTouchControl extends StatelessWidget {
                               color: SssColor.joystickBackground,
                               shape: BoxShape.circle,
                             ),
+                            // child: Expanded(child: Center(
+                            //   child: SizedBox(
+                            //       height: controller.arrowSize,
+                            //       child: Lottie.asset(
+                            //         'assets/lottie/arrow2side.json',
+                            //       )
+                            //   ),
+                            // )),
                             child: Row(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 Expanded(child: Center(
-                                  child: Icon(Icons.keyboard_arrow_left_outlined,
-                                    color: SssColor.arrowBlack,
-                                    size: 20,
+                                  child: RotatedBox(
+                                    quarterTurns: controller.turnRight,
+                                    child: SizedBox(
+                                        height: controller.arrowSize,
+                                        child: Opacity(
+                                            opacity: controller.arrowOpacity,
+                                            child: Lottie.asset(
+                                              controller.arrowAssetName,
+                                            )
+                                        )
+                                    ),
                                   ),
                                 )),
                                 Expanded(child: Center(
-                                  child: Icon(Icons.keyboard_arrow_right_outlined,
-                                    color: SssColor.arrowBlack,
-                                    size: 20,
+                                  child: RotatedBox(
+                                    quarterTurns: controller.turnLeft,
+                                    child: SizedBox(
+                                        height: controller.arrowSize,
+                                        child: Opacity(
+                                          opacity: controller.arrowOpacity,
+                                          child: Lottie.asset(
+                                            controller.arrowAssetName,
+                                          ),
+                                        )
+                                    ),
                                   ),
                                 )),
                               ],
@@ -187,18 +254,6 @@ class LeftSeatTouchPageTouchControl extends StatelessWidget {
                               ChairMovement.seatForward,
                               ChairMovement.seatBackward
                           ),
-                          // listener: (detail){
-                          //   if(detail.x != 0 || detail.y != 0){
-                          //     if(detail.x > 0) {
-                          //       controller.startMovement(ChairMovement.seatForward);
-                          //     }else if(detail.x < 0) {
-                          //       controller.startMovement(ChairMovement.seatBackward);
-                          //     }
-                          //   }else{
-                          //     controller.stopMovement();
-                          //   }
-                          //   controller.update();
-                          // }
                       )
                   ),
                   Positioned(
@@ -223,19 +278,46 @@ class LeftSeatTouchPageTouchControl extends StatelessWidget {
                               color: SssColor.joystickBackground,
                               shape: BoxShape.circle,
                             ),
+                            // child: Expanded(child: Center(
+                            //   child: RotatedBox(
+                            //     quarterTurns: controller.turnLeft,
+                            //     child: SizedBox(
+                            //         height: controller.arrowSize,
+                            //         child: Lottie.asset(
+                            //           'assets/lottie/arrow2side.json',
+                            //         )
+                            //     ),
+                            //   ),
+                            // )),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
                                 Expanded(child: Center(
-                                  child: Icon(Icons.keyboard_arrow_up_outlined,
-                                    color: SssColor.arrowBlack,
-                                    size: 20,
+                                  child: RotatedBox(
+                                    quarterTurns: controller.turnUp,
+                                    child: SizedBox(
+                                        height: controller.arrowSize,
+                                        child: Opacity(
+                                            opacity: controller.arrowOpacity,
+                                            child: Lottie.asset(
+                                              controller.arrowAssetName,
+                                            )
+                                        )
+                                    ),
                                   ),
                                 )),
                                 Expanded(child: Center(
-                                  child: Icon(Icons.keyboard_arrow_down_outlined,
-                                    color: SssColor.arrowBlack,
-                                    size: 20,
+                                  child: RotatedBox(
+                                    quarterTurns: controller.turnDown,
+                                    child: SizedBox(
+                                        height: controller.arrowSize,
+                                        child: Opacity(
+                                          opacity: controller.arrowOpacity,
+                                          child: Lottie.asset(
+                                            controller.arrowAssetName,
+                                          ),
+                                        )
+                                    ),
                                   ),
                                 )),
                               ],
@@ -246,18 +328,6 @@ class LeftSeatTouchPageTouchControl extends StatelessWidget {
                               ChairMovement.handDownward,
                               ChairMovement.handUpward
                           ),
-                          // listener: (detail){
-                          //   if(detail.x != 0 || detail.y != 0){
-                          //     if(detail.y > 0) {
-                          //       controller.startMovement(ChairMovement.handDownward);
-                          //     }else if(detail.y < 0) {
-                          //       controller.startMovement(ChairMovement.handUpward);
-                          //     }
-                          //   }else{
-                          //     controller.stopMovement();
-                          //   }
-                          //   controller.update();
-                          // }
                       )
                   ),
                   Positioned(
@@ -283,62 +353,53 @@ class LeftSeatTouchPageTouchControl extends StatelessWidget {
                                 color: SssColor.joystickBackground,
                                 shape: BoxShape.circle,
                               ),
+                              // child: Expanded(child: Center(
+                              //   child: SizedBox(
+                              //       height: controller.arrowSize,
+                              //       child: Lottie.asset(
+                              //         'assets/lottie/arrow2side.json',
+                              //       )
+                              //   ),
+                              // )),
                               child: Row(
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  Expanded(child: Center(
-                                    child: Icon(Icons.keyboard_arrow_left_outlined,
-                                      color: SssColor.arrowBlack,
-                                      size: 20,
+                                  Center(
+                                    child: RotatedBox(
+                                    quarterTurns: controller.turnRight,
+                                    child: SizedBox(
+                                        height: controller.arrowSize,
+                                        child: Opacity(
+                                            opacity: controller.arrowOpacity,
+                                            child: Lottie.asset(
+                                              controller.arrowAssetName,
+                                            )
+                                        )
                                     ),
-                                  )),
-                                  Expanded(child: Center(
-                                    child: Icon(Icons.keyboard_arrow_right_outlined,
-                                      color: SssColor.arrowBlack,
-                                      size: 20,
+                                  ),),
+                                  Expanded(child: SizedBox()),
+                                  Center(
+                                  child: RotatedBox(
+                                    quarterTurns: controller.turnLeft,
+                                    child: SizedBox(
+                                        height: controller.arrowSize,
+                                        child: Opacity(
+                                          opacity: controller.arrowOpacity,
+                                          child: Lottie.asset(
+                                            controller.arrowAssetName,
+                                          ),
+                                        )
                                     ),
-                                  )),
+                                  ),
+                                                                    ),
                                 ],
                               ),
-                              // child: Row(
-                              //   crossAxisAlignment: CrossAxisAlignment.center,
-                              //   children: [
-                              //     Expanded(child: Center(
-                              //       child: Image.asset(
-                              //         'assets/images/arrow_left.png',
-                              //         color: SssColor.arrowBlack,
-                              //       ),
-                              //     )),
-                              //     Expanded(child: Center(
-                              //       child: Image.asset(
-                              //         'assets/images/arrow_right.png',
-                              //         color: SssColor.arrowBlack,
-                              //       ),
-                              //     )),
-                              //   ],
-                              // ),
-                              // child: RippleWave(
-                              //   side: RippleSide.leftAndRight,
-                              //   child: SizedBox()
-                              // ),
                             ),
                             listener: (detail) => controller.touchControlX(
                                 detail,
                                 ChairMovement.footBackward,
                                 ChairMovement.footForward
                             ),
-                            // listener: (detail){
-                            //   if(detail.x != 0 || detail.y != 0){
-                            //     if(detail.x > 0) {
-                            //       controller.startMovement(ChairMovement.footBackward);
-                            //     }else if(detail.x < 0) {
-                            //       controller.startMovement(ChairMovement.footForward);
-                            //     }
-                            //   }else{
-                            //     controller.stopMovement();
-                            //   }
-                            //   controller.update();
-                            // }
                         ),
                       )
                   ),

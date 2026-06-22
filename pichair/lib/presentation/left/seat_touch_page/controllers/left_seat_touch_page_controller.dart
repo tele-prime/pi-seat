@@ -11,6 +11,15 @@ class LeftSeatTouchPageController extends GetxController{
   bool showLabel = true;
   double labelWidth = 100;
   double labelHeight = 30;
+  double arrowOpacity = 0.7;
+  double arrowSize = 50;
+
+  bool left = true;
+  int turnUp = 0;
+  int turnLeft = 1;
+  int turnDown = 2;
+  int turnRight = 3;
+  String arrowAssetName = "assets/lottie/arrow_white.json";
 
   final GlobalKey<ScaffoldState> leftScaffoldKey = GlobalKey<ScaffoldState>();
   double screenRatio = Get.width/Get.height;
@@ -52,6 +61,17 @@ class LeftSeatTouchPageController extends GetxController{
   double c5y = 330;
   double c5w = 275;
   double c5h = 150;
+
+  @override
+  void onInit() {
+    super.onInit();
+
+  }
+
+  void arrowFlip() {
+    left = !left;
+    update();
+  }
 
   void startMovement(ChairMovement newMovement) {
     if(gpioService.currentChairMovement == ChairMovement.none) {

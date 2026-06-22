@@ -89,6 +89,17 @@ class SettingPageController extends GetxController {
     homePageController.update();
   }
 
+  void changeThemeModeToggle(bool current) async {
+    if(current){
+      service.saveThemeMode(ThemeMode.light);
+    }else{
+      service.saveThemeMode(ThemeMode.dark);
+    }
+    await Future.delayed(const Duration(milliseconds: 300), update);
+    HomePageController homePageController = Get.find();
+    homePageController.update();
+  }
+
   void changeLocale(String? localeString) async {
     Locale newLocale = {
       'en' : Locale('en', 'US'),

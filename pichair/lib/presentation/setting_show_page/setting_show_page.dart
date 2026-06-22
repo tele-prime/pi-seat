@@ -55,34 +55,34 @@ class SettingShowPage extends StatelessWidget {
                               fontSize: 18
                           )),
                           SizedBox(height: 10),
-                          SizedBox(
-                            child: AnimatedToggleSwitch<bool>.dual(
-                              current: currentThemeMode.value == ThemeMode.light,
-                              first: false,
-                              second: true,
-                              spacing: 50.0,
-                              style: ToggleStyle(
-                                borderColor: currentThemeMode.value == ThemeMode.light ? SssColor.lightScaffoldBackground : SssColor.darkScaffoldBackground,
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.black26,
-                                    spreadRadius: 1,
-                                    blurRadius: 2,
-                                    offset: Offset(0, 1.5),
-                                  ),
-                                ],
-                              ),
-                              borderWidth: 5.0,
-                              height: 55,
-                              onChanged: controller.changeThemeModeToggle,
-                              styleBuilder: (b) => ToggleStyle(indicatorColor: b ? Colors.white : Colors.black,
-                                backgroundColor: currentThemeMode.value == ThemeMode.light ? SssColor.lightScaffoldBackground : SssColor.darkScaffoldBackground,
-                              ),
-                              iconBuilder: (value) => value ? Icon(Icons.light_mode) : Icon(Icons.dark_mode),
-                              textBuilder: (value) => value ? Center(child: Text('Light')) : Center(child: Text('Dark')),
-                            ),
-                          ),
-                          SizedBox(height: 10),
+                          // SizedBox(
+                          //   child: AnimatedToggleSwitch<bool>.dual(
+                          //     current: currentThemeMode.value == ThemeMode.light,
+                          //     first: false,
+                          //     second: true,
+                          //     spacing: 50.0,
+                          //     style: ToggleStyle(
+                          //       borderColor: currentThemeMode.value == ThemeMode.light ? SssColor.lightScaffoldBackground : SssColor.darkScaffoldBackground,
+                          //       boxShadow: [
+                          //         BoxShadow(
+                          //           color: Colors.black26,
+                          //           spreadRadius: 1,
+                          //           blurRadius: 2,
+                          //           offset: Offset(0, 1.5),
+                          //         ),
+                          //       ],
+                          //     ),
+                          //     borderWidth: 5.0,
+                          //     height: 55,
+                          //     onChanged: controller.changeThemeModeToggle,
+                          //     styleBuilder: (b) => ToggleStyle(indicatorColor: b ? Colors.white : Colors.black,
+                          //       backgroundColor: currentThemeMode.value == ThemeMode.light ? SssColor.lightScaffoldBackground : SssColor.darkScaffoldBackground,
+                          //     ),
+                          //     iconBuilder: (value) => value ? Icon(Icons.light_mode) : Icon(Icons.dark_mode),
+                          //     textBuilder: (value) => value ? Center(child: Text('Light')) : Center(child: Text('Dark')),
+                          //   ),
+                          // ),
+                          // SizedBox(height: 10),
                           Row(
                             children: [
                               SettingShowThemeMenuWidget(
@@ -114,36 +114,36 @@ class SettingShowPage extends StatelessWidget {
                               fontSize: 18
                           )),
                           SizedBox(height: 10),
-                          SizedBox(
-                            child: AnimatedToggleSwitch<String>.dual(
-                              current: currentLocale.value.languageCode,
-                              first: 'my',
-                              second: 'en',
-                              spacing: 50.0,
-                              style: ToggleStyle(
-                                borderColor: currentThemeMode.value == ThemeMode.light ? SssColor.lightScaffoldBackground : SssColor.darkScaffoldBackground,
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Colors.black26,
-                                    spreadRadius: 1,
-                                    blurRadius: 2,
-                                    offset: Offset(0, 1.5),
-                                  ),
-                                ],
-                              ),
-                              borderWidth: 5.0,
-                              height: 55,
-                              onChanged: controller.changeLocale,
-                              styleBuilder: (b) => ToggleStyle(indicatorColor: Colors.transparent,
-                                  backgroundColor: Colors.transparent
-                              ),
-                              customIconBuilder: (c,s,d) {
-                                debugPrint('Current locale = ${s.value} and ${d.current}');
-                                return Center(child: Image.asset( d.current == 'my' ? 'assets/flags/mm.png' : 'assets/flags/us.png', width: 20,));
-                              },
-                              textBuilder: (value) => value == 'my' ? Center(child: Text('မြန်မာ')) : Center(child: Text('English')),
-                            ),
-                          ),
+                          // SizedBox(
+                          //   child: AnimatedToggleSwitch<String>.dual(
+                          //     current: currentLocale.value.languageCode,
+                          //     first: 'my',
+                          //     second: 'en',
+                          //     spacing: 50.0,
+                          //     style: ToggleStyle(
+                          //       borderColor: currentThemeMode.value == ThemeMode.light ? SssColor.lightScaffoldBackground : SssColor.darkScaffoldBackground,
+                          //       boxShadow: [
+                          //         BoxShadow(
+                          //           color: Colors.black26,
+                          //           spreadRadius: 1,
+                          //           blurRadius: 2,
+                          //           offset: Offset(0, 1.5),
+                          //         ),
+                          //       ],
+                          //     ),
+                          //     borderWidth: 5.0,
+                          //     height: 55,
+                          //     onChanged: controller.changeLocale,
+                          //     styleBuilder: (b) => ToggleStyle(indicatorColor: Colors.transparent,
+                          //         backgroundColor: Colors.transparent
+                          //     ),
+                          //     customIconBuilder: (c,s,d) {
+                          //       debugPrint('Current locale = ${s.value} and ${d.current}');
+                          //       return Center(child: Image.asset( d.current == 'my' ? 'assets/flags/mm.png' : 'assets/flags/us.png', width: 20,));
+                          //     },
+                          //     textBuilder: (value) => value == 'my' ? Center(child: Text('မြန်မာ')) : Center(child: Text('English')),
+                          //   ),
+                          // ),
                           SizedBox(height: 10),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.end,

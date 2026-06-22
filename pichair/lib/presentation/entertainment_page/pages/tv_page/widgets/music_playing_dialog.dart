@@ -4,7 +4,7 @@ import 'package:pichair/presentation/entertainment_page/pages/tv_page/controller
 
 
 class MusicPlayerDialog extends StatelessWidget {
-  const MusicPlayerDialog({super.key});
+  MusicPlayerDialog({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,33 +12,33 @@ class MusicPlayerDialog extends StatelessWidget {
       builder: (controller) {
         return Dialog(
           backgroundColor: Colors.transparent,
-          insetPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 20),
+          insetPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 20),
           child: Container(
             width: 400,
-            constraints: const BoxConstraints(maxWidth: 400),
+            constraints: BoxConstraints(maxWidth: 400),
             decoration: BoxDecoration(
-              gradient: const LinearGradient(
+              gradient: LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors: [
-                  Color(0xFFFFFFFF),      // Pure white
-                  Color(0xFFFDF8F0),      // Warm milk white
-                  Color(0xFFF5EDE0),      // Light milk cream
+                  Color(0xFFFFFFFF),
+                  Color(0xFFFDF8F0),
+                  Color(0xFFF5EDE0),
                 ],
                 stops: [0.0, 0.5, 1.0],
               ),
               borderRadius: BorderRadius.circular(28),
               boxShadow: [
                 BoxShadow(
-                  color: const Color(0xFF8B7355).withOpacity(0.15),
+                  color: Color(0xFF8B7355).withOpacity(0.15),
                   blurRadius: 30,
-                  offset: const Offset(0, 10),
+                  offset: Offset(0, 10),
                   spreadRadius: 2,
                 ),
                 BoxShadow(
                   color: Colors.black.withOpacity(0.08),
                   blurRadius: 20,
-                  offset: const Offset(0, 5),
+                  offset: Offset(0, 5),
                 ),
               ],
             ),
@@ -47,20 +47,18 @@ class MusicPlayerDialog extends StatelessWidget {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  // Top bar with close button
                   Container(
-                    padding: const EdgeInsets.fromLTRB(24, 20, 16, 0),
+                    padding: EdgeInsets.fromLTRB(24, 20, 16, 0),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        // Now Playing label
                         Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                          padding: EdgeInsets.symmetric(horizontal: 12, vertical: 2),
                           decoration: BoxDecoration(
-                            color: const Color(0xFFFFF8E7),
+                            color: Color(0xFFFFF8E7),
                             borderRadius: BorderRadius.circular(20),
                             border: Border.all(
-                              color: const Color(0xFFE8DCC8),
+                              color: Color(0xFFE8DCC8),
                               width: 1,
                             ),
                           ),
@@ -70,13 +68,13 @@ class MusicPlayerDialog extends StatelessWidget {
                               Container(
                                 width: 6,
                                 height: 6,
-                                decoration: const BoxDecoration(
+                                decoration: BoxDecoration(
                                   color: Color(0xFFD4A574),
                                   shape: BoxShape.circle,
                                 ),
                               ),
-                              const SizedBox(width: 8),
-                              const Text(
+                              SizedBox(width: 8),
+                              Text(
                                 'Now Playing',
                                 style: TextStyle(
                                   color: Color(0xFF8B7355),
@@ -88,7 +86,6 @@ class MusicPlayerDialog extends StatelessWidget {
                             ],
                           ),
                         ),
-                        // Close button - stops music and closes dialog
                         Material(
                           color: Colors.transparent,
                           child: InkWell(
@@ -97,16 +94,16 @@ class MusicPlayerDialog extends StatelessWidget {
                             },
                             borderRadius: BorderRadius.circular(20),
                             child: Container(
-                              padding: const EdgeInsets.all(8),
+                              padding: EdgeInsets.symmetric(horizontal: 8, vertical: 2),
                               decoration: BoxDecoration(
-                                color: const Color(0xFFFFF8E7),
+                                color: Color(0xFFFFF8E7),
                                 borderRadius: BorderRadius.circular(20),
                                 border: Border.all(
-                                  color: const Color(0xFFE8DCC8),
+                                  color: Color(0xFFE8DCC8),
                                   width: 1,
                                 ),
                               ),
-                              child: const Icon(
+                              child: Icon(
                                 Icons.close_rounded,
                                 color: Color(0xFF8B7355),
                                 size: 20,
@@ -117,53 +114,14 @@ class MusicPlayerDialog extends StatelessWidget {
                       ],
                     ),
                   ),
-
-                  // const SizedBox(height: 32),
-
-                  // Album Art Area
-                  // Container(
-                  //   width: 50,
-                  //   height: 50,
-                  //   decoration: BoxDecoration(
-                  //     gradient: const LinearGradient(
-                  //       begin: Alignment.topLeft,
-                  //       end: Alignment.bottomRight,
-                  //       colors: [
-                  //         Color(0xFFFFF8E7),
-                  //         Color(0xFFF5E6D3),
-                  //         Color(0xFFE8D4C0),
-                  //       ],
-                  //     ),
-                  //     borderRadius: BorderRadius.circular(24),
-                  //     boxShadow: [
-                  //       BoxShadow(
-                  //         color: const Color(0xFFD4A574).withOpacity(0.2),
-                  //         blurRadius: 20,
-                  //         offset: const Offset(0, 8),
-                  //       ),
-                  //     ],
-                  //   ),
-                  //   child: Center(
-                  //     child: Icon(
-                  //       controller.isPlaying
-                  //           ? Icons.music_note
-                  //           : Icons.music_note_outlined,
-                  //       size: 64,
-                  //       color: const Color(0xFFD4A574),
-                  //     ),
-                  //   ),
-                  // ),
-
-                  const SizedBox(height: 32),
-
-                  // Song Info
+                  SizedBox(height: 8),
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 32),
+                    padding: EdgeInsets.symmetric(horizontal: 32),
                     child: Column(
                       children: [
                         Text(
                           'တရံရောအခါ',
-                          style: const TextStyle(
+                          style: TextStyle(
                             fontSize: 22,
                             fontWeight: FontWeight.bold,
                             color: Color(0xFF3D3229),
@@ -173,10 +131,10 @@ class MusicPlayerDialog extends StatelessWidget {
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                         ),
-                        const SizedBox(height: 8),
+                        SizedBox(height: 4),
                         Text(
                           'ကြည်ကြည်ဌေး',
-                          style: const TextStyle(
+                          style: TextStyle(
                             fontSize: 15,
                             color: Color(0xFF9E8E7D),
                             fontWeight: FontWeight.w500,
@@ -188,67 +146,40 @@ class MusicPlayerDialog extends StatelessWidget {
                       ],
                     ),
                   ),
+                  SizedBox(height: 4),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 28),
+                    child: Column(
+                      children: [
+                        SliderTheme(
+                          data: SliderTheme.of(context).copyWith(
+                            activeTrackColor: Color(0xFFD4A574),
+                            inactiveTrackColor: Color(0xFFE8DCC8),
+                            thumbColor: Color(0xFFFFFFFF),
+                            thumbShape: RoundSliderThumbShape(
+                              enabledThumbRadius: 8,
+                              elevation: 4,
+                            ),
+                            overlayColor: Color(0xFFD4A574).withOpacity(0.2),
+                            overlayShape: RoundSliderOverlayShape(overlayRadius: 16),
+                            trackHeight: 4,
+                          ),
+                          child: Slider(
+                            value: 0.5.clamp(0.0, 1.0),
+                            onChanged: (value) {
 
-                  // const SizedBox(height: 32),
-                  //
-                  // // Progress Bar
-                  // Padding(
-                  //   padding: const EdgeInsets.symmetric(horizontal: 28),
-                  //   child: Column(
-                  //     children: [
-                  //       SliderTheme(
-                  //         data: SliderTheme.of(context).copyWith(
-                  //           activeTrackColor: const Color(0xFFD4A574),
-                  //           inactiveTrackColor: const Color(0xFFE8DCC8),
-                  //           thumbColor: const Color(0xFFFFFFFF),
-                  //           thumbShape: const RoundSliderThumbShape(
-                  //             enabledThumbRadius: 8,
-                  //             elevation: 4,
-                  //           ),
-                  //           overlayColor: const Color(0xFFD4A574).withOpacity(0.2),
-                  //           overlayShape: const RoundSliderOverlayShape(overlayRadius: 16),
-                  //           trackHeight: 4,
-                  //         ),
-                  //         child: Slider(
-                  //           value: 0.5.clamp(0.0, 1.0),
-                  //           onChanged: (value) {
-                  //             // controller.seekTo(value);
-                  //           },
-                  //         ),
-                  //       ),
-                  //       Padding(
-                  //         padding: const EdgeInsets.symmetric(horizontal: 12),
-                  //         child: Row(
-                  //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  //           children: [
-                  //             Text(
-                  //               'Current Position by Tele',
-                  //               style: const TextStyle(
-                  //                 color: Color(0xFF9E8E7D),
-                  //                 fontSize: 12,
-                  //                 fontWeight: FontWeight.w500,
-                  //               ),
-                  //             ),
-                  //             Text(
-                  //               'Total Duration by Tele',
-                  //               style: const TextStyle(
-                  //                 color: Color(0xFF9E8E7D),
-                  //                 fontSize: 12,
-                  //                 fontWeight: FontWeight.w500,
-                  //               ),
-                  //             ),
-                  //           ],
-                  //         ),
-                  //       ),
-                  //     ],
-                  //   ),
-                  // ),
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
 
-                  const SizedBox(height: 24),
+                  SizedBox(height: 4),
 
                   // Control Buttons
                   Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 32),
+                    padding: EdgeInsets.symmetric(horizontal: 32),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -257,21 +188,19 @@ class MusicPlayerDialog extends StatelessWidget {
                           icon: Icons.skip_previous_rounded,
                           onTap: () {
                             if (controller.currentIndex > 0) {
-                              // controller.playSong(controller.currentIndex - 1);
+
                             }
                           },
-                          size: 28,
+                          size: 18,
                         ),
-                        const SizedBox(width: 24),
-                        // Play/Pause button
+                        SizedBox(width: 12),
                         GestureDetector(
                           onTap: (){},
-                          // onTap: controller.togglePlayPause,
                           child: Container(
-                            width: 72,
-                            height: 72,
+                            width: 45,
+                            height: 45,
                             decoration: BoxDecoration(
-                              gradient: const LinearGradient(
+                              gradient: LinearGradient(
                                 begin: Alignment.topLeft,
                                 end: Alignment.bottomRight,
                                 colors: [
@@ -282,9 +211,9 @@ class MusicPlayerDialog extends StatelessWidget {
                               borderRadius: BorderRadius.circular(36),
                               boxShadow: [
                                 BoxShadow(
-                                  color: const Color(0xFFD4A574).withOpacity(0.3),
+                                  color: Color(0xFFD4A574).withOpacity(0.3),
                                   blurRadius: 15,
-                                  offset: const Offset(0, 6),
+                                  offset: Offset(0, 6),
                                 ),
                               ],
                             ),
@@ -293,26 +222,23 @@ class MusicPlayerDialog extends StatelessWidget {
                                   ? Icons.pause_rounded
                                   : Icons.play_arrow_rounded,
                               color: Colors.white,
-                              size: 36,
+                              size: 27,
                             ),
                           ),
                         ),
-                        const SizedBox(width: 24),
+                        SizedBox(width: 12),
                         // Next button
                         MusicDialogControlButton(
                           icon: Icons.skip_next_rounded,
                           onTap: () {
-                            // if (controller.currentIndex < controller.musicList.length - 1) {
-                            //   controller.playSong(controller.currentIndex + 1);
-                            // }
+
                           },
-                          size: 28,
+                          size: 18,
                         ),
                       ],
                     ),
                   ),
-
-                  const SizedBox(height: 36),
+                  SizedBox(height: 18),
                 ],
               ),
             ),
@@ -328,7 +254,7 @@ class MusicDialogControlButton extends StatelessWidget {
   final VoidCallback onTap;
   final double size;
 
-  const MusicDialogControlButton({
+  MusicDialogControlButton({
     required this.icon,
     required this.onTap,
     required this.size,
@@ -342,19 +268,19 @@ class MusicDialogControlButton extends StatelessWidget {
         onTap: onTap,
         borderRadius: BorderRadius.circular(28),
         child: Container(
-          width: 56,
-          height: 56,
+          width: 36,
+          height: 36,
           decoration: BoxDecoration(
-            color: const Color(0xFFFFF8E7),
+            color: Color(0xFFFFF8E7),
             borderRadius: BorderRadius.circular(28),
             border: Border.all(
-              color: const Color(0xFFE8DCC8),
+              color: Color(0xFFE8DCC8),
               width: 1.5,
             ),
           ),
           child: Icon(
             icon,
-            color: const Color(0xFF8B7355),
+            color: Color(0xFF8B7355),
             size: size,
           ),
         ),
